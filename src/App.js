@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Table from "./components/table/Table";
+import Info from "./components/info/Info";
+import React, {useEffect, useState} from 'react'
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+export default function App() {
+
+    useEffect(() => {
+        getData()
+    }, []);
+
+    const [user, setUser] = useState({})
+
+    function getData() {
+        axios.get('https://api.github.com/gists/e1702c1ef26cddd006da989aa47d4f62').then((response) => {
+            setUser(response.data)
+        }).catch((error) => {
+            console.warn(error, 'server error');
+        })
+    }
+
+    function getFields(){
+        let list = Object.keys(user)
+        let fields =  list.map((item, id) => {
+
+            return(
+                <tr key={id}>{item}</tr>
+            )
+        })
+        return fields
+    }
+
+    return (
+        <div className='container'>
+            <Table
+                getFields={getFields}
+            />
+            <Info
+            user={user}
+            />
+        </div>
+    )
 }
-
-export default App;
