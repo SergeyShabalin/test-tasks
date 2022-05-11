@@ -5,7 +5,7 @@ class User {
 
     _fieldValue = 'url'
     _users = {}
-    _obj={}
+    _obj=''
 
     get users() {
         return this._users

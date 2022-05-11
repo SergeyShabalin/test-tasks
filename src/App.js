@@ -1,9 +1,10 @@
+import React, {} from 'react'
 import Table from "./components/table/Table";
 import Info from "./components/info/Info";
-import React, {} from 'react'
-
+import ObjInfo from "./components/objInfo/ObjInfo";
 
 import './App.css'
+
 
 export default function App() {
 
@@ -11,6 +12,7 @@ export default function App() {
         <div className='contain'>
             <Table/>
             <Info/>
+            <ObjInfo/>
         </div>
     )
 }

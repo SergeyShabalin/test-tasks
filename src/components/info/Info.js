@@ -21,7 +21,7 @@ const Info = () => {
                 return (
                     <div key={id}
                          className='object'
-                         onClick={()=>User.getObjFields(value)}
+                         onClick={() => User.getObjFields(value)}
                     >{value}
                     </div>
                 )
@@ -31,13 +31,13 @@ const Info = () => {
     }
 
     return (
-        <div className='main'>
-            {typeof User.fieldValue !== "object"
-                ? User.fieldValue
-                : viewObject()}
-            <button className=' bt btn btn-primary'>Refresh</button>
-            <button className='bt btn btn-danger'>Remove</button>
-        </div>
+            <div className='main'>
+                {typeof User.fieldValue !== "object"
+                    ? User.fieldValue
+                    : viewObject()}
+                <button className=' bt btn btn-primary'>Refresh</button>
+                <button className='bt btn btn-danger'>Remove</button>
+            </div>
     )
 }
 
