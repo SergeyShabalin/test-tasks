@@ -11,6 +11,7 @@ const  Table=()=> {
     function getFields() {
         let list = Object.keys(UserInfo.users)
         let fields = list.map((item, id) => {
+
             return (
                 <tr
                     className='fields'
@@ -30,9 +31,7 @@ const  Table=()=> {
             </tr>
             </thead>
             <tbody>
-            <tr>
                 {getFields()}
-            </tr>
             </tbody>
         </table>
     )
