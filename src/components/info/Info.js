@@ -1,20 +1,22 @@
-import React from 'react'
-import './Info.css'
-
+import React,{useEffect} from 'react'
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../index";
 
+import './Info.css'
+
 const Info = () => {
-const User = useStore()
-    console.log(User)
+
+    useEffect(()=>{
+        User.getInfo()
+    }, [])
+
+    const User = useStore()
+
+
+
     return (
         <div className='main'>
-            {User.ded.comments_url}
-
-            <button onClick={()=> User.getInfo()}>ded</button>
-            <button onClick={() => User.setInfo()}>info</button>
-            <button onClick={() => User.setInfo2()}>info2</button>
-
+            {User.fieldValue}
         </div>)
 }
 

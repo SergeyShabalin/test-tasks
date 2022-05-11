@@ -1,41 +1,46 @@
-import {makeObservable, makeAutoObservable} from "mobx";
+import {makeAutoObservable} from "mobx";
 import axios from "axios";
 
 class User {
 
-    _info = 0
-    _ded={}
+    _fieldValue=''
+    _users={}
 
-    get ded() {
-        return this._ded
+    get users() {
+        return this._users
     }
 
-    set ded(value){
-        this._ded=value
+    set users(value){
+        this._users=value
     }
 
+    get fieldValue(){
+        return this._fieldValue
+    }
 
-    //привязать к useEffect
-    getInfo(){
-        axios.get('https://api.github.com/gists/e1702c1ef26cddd006da989aa47d4f62').then((response) => {
-            this.ded =response.data
-        }).catch((error) => {
-            console.warn(error, 'server error');
-        })
+    set fieldValue(value){
+        this._fieldValue=value
     }
 
     constructor() {
         makeAutoObservable(this)
     }
-    setInfo(){
-        this._info = this._info-1
-        console.log(this._info)
+
+    getInfo(){
+        axios.get('https://api.github.com/gists/e1702c1ef26cddd006da989aa47d4f62').then((response) => {
+            this.users =response.data
+        }).catch((error) => {
+            console.warn(error, 'server error');
+        })
     }
 
-    setInfo2(){
-        this._info = this._info+1
-        console.log(this.ded)
+    getDataFields(field){
+        this.fieldValue = this.users[field]
+
+        console.log(this._fieldValue)
     }
+
+
 
 }
 

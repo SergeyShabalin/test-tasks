@@ -1,0 +1,7 @@
+.fields{
+    cursor:pointer;
+}
+
+.fields:hover{
+    background-color: #887f7f;
+}
