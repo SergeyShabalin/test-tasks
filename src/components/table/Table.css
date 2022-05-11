@@ -5,3 +5,11 @@
 .fields:hover{
     background-color: #887f7f;
 }
+
+.object{
+    cursor:pointer;
+}
+
+.object:hover{
+    background-color: bisque;
+}

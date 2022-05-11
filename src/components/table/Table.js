@@ -24,7 +24,7 @@ const  Table=()=> {
     }
 
     return (
-        <table>
+        <table className='table table-striped'>
             <thead>
             <tr>
                 <th>Наименование</th>

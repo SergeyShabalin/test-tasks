@@ -1,6 +1,10 @@
 .main {
-    width: 20%;
-    height: 400px;
-    background-color: #887f7f;
-    margin-top: 20px;
+    width: 40%;
+    height: 50%;
+    background-color: #d3c6c6;
+    margin-top: 41px;
+}
+
+.bt{
+    margin: 5px;
 }

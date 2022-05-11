@@ -13,18 +13,30 @@ const Info = () => {
     const User = useStore()
 
     function viewObject() {
-        let list = Object.keys(User.fieldValue)
-        let obj = list.map((value, id) => {
-            return (
-                <div key={id}>{value}</div>
-            )
-        })
-        return obj
+        if (User.fieldValue === null) {
+            return 'null'
+        } else {
+            let list = Object.keys(User.fieldValue)
+            let obj = list.map((value, id) => {
+                return (
+                    <div key={id}
+                         className='object'
+                         onClick={()=>User.getObjFields(value)}
+                    >{value}
+                    </div>
+                )
+            })
+            return obj
+        }
     }
 
     return (
         <div className='main'>
-            {typeof User.fieldValue !== "object" ? User.fieldValue : viewObject()}
+            {typeof User.fieldValue !== "object"
+                ? User.fieldValue
+                : viewObject()}
+            <button className=' bt btn btn-primary'>Refresh</button>
+            <button className='bt btn btn-danger'>Remove</button>
         </div>
     )
 }

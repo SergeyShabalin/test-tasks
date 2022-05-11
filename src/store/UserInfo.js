@@ -5,6 +5,7 @@ class User {
 
     _fieldValue = 'url'
     _users = {}
+    _obj={}
 
     get users() {
         return this._users
@@ -20,6 +21,14 @@ class User {
 
     set fieldValue(value) {
         this._fieldValue = value
+    }
+
+    get obj(){
+        return this._obj
+    }
+
+    set obj(value) {
+        this._obj = value
     }
 
     constructor() {
@@ -38,6 +47,10 @@ class User {
         this.fieldValue = this.users[field]
     }
 
+    getObjFields(value){
+        this.obj = this.fieldValue[value]
+        console.log(this._obj)
+    }
 
 }
 
