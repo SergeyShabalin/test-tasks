@@ -14,7 +14,7 @@ const Info = () => {
 
     function viewObject() {
         if (User.fieldValue === null) {
-            return 'null'
+            return null
         } else {
             let list = Object.keys(User.fieldValue)
             let obj = list.map((value, id) => {
